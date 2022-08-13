@@ -1,9 +1,9 @@
-import time, requests, random, datetime, os, glob, schedule
-import vk_api
-import json
+import  requests,  datetime, glob, schedule
+# import vk_api, time, random, os, json
+# from time import sleep
 from auth import token_grup_banner
 # -*- coding: utf-8 -*-
-from time import sleep
+
 from random import randint
 from question import *
 from bot_answer import go_answer
@@ -12,6 +12,7 @@ def post_pic_vk(folder_path_text, tema):
     """ проверка по id группы для подстановки пути нужной папки"""
 
     # #проверка в какую группу писать
+    global group_id
     if folder_path_text == "banner" and tema == "banner":
         group_id = 161962808
         folder_path_text = "banner"
@@ -34,7 +35,7 @@ def post_pic_vk(folder_path_text, tema):
 #--------------------    #будем читать посты из txt файлов
 
     path_text = f'text/{folder_path_text}/'
-    # генерим случайную переенную от 1 до 12 что б выбрать случайный файл
+    # генерим случайную переенную от 1 до 12 чтоб выбрать случайный файл
     name_fail = randint(1, 12)
     # собираем путь до файла
     fukk_path = f'{path_text}{name_fail}.txt'
@@ -70,7 +71,7 @@ def post_pic_vk(folder_path_text, tema):
     -group_id, message_post, atts, token_grup_banner)
     resp = requests.get(url).json()['response']
     files = 0
-    os.remove(pic2post)
+    #os.remove(pic2post) # раньше удалял файлы изображений и искал другие, теперь просто добавляю новые в новый пост выбираем рандомно
 
 # post_pic_vk(161962808)
 
@@ -104,7 +105,7 @@ def job():
 
     schedule.every().day.at("14:15").do(post_pic_vk, folder_path_text = "oboi", tema = '1')
 
-    schedule.every().day.at("18:40").do(post_pic_vk, folder_path_text = "banner", tema='mobstend')
+    schedule.every().day.at("19:20").do(post_pic_vk, folder_path_text = "banner", tema='mobstend')
     schedule.every().day.at("20:25").do(main)
     schedule.every().day.at("20:30").do(go_answer)
 
