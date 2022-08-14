@@ -91,8 +91,8 @@ def job():
 
     schedule.every().day.at("11:50").do(post_pic_vk, folder_path_text = "oboi", tema = '1')
 
-    schedule.every().day.at("11:15").do(post_pic_vk, folder_path_text = "banner", tema = 'banner')
-    schedule.every().day.at("11:16").do(main)
+    schedule.every().day.at("22:43").do(post_pic_vk, folder_path_text = "banner", tema = 'banner')
+    schedule.every().day.at("22:45").do(main)
     schedule.every().day.at("11:22").do(go_answer)
 
     schedule.every().day.at("13:05").do(post_pic_vk, folder_path_text = "banner", tema = 'banner')
@@ -109,9 +109,9 @@ def job():
     schedule.every().day.at("20:25").do(main)
     schedule.every().day.at("20:30").do(go_answer)
 
-    schedule.every().day.at("21:45").do(post_pic_vk, folder_path_text = "banner", tema = 'banner')
-    schedule.every().day.at("21:59").do(main)
-    schedule.every().day.at("22:22").do(go_answer)
+    schedule.every().day.at("23:25").do(post_pic_vk, folder_path_text = "banner", tema = 'banner')
+    schedule.every().day.at("23:40").do(main)
+    schedule.every().day.at("23:41").do(go_answer)
 
     schedule.every().day.at("18:35").do(post_pic_vk, folder_path_text = "oboi", tema = '1')
     schedule.every().day.at("21:22").do(post_pic_vk, folder_path_text = "oboi", tema = '1')

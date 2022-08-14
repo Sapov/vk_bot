@@ -9,13 +9,13 @@ def change_token():
     # count = len(auth.tokens_vk)
     # i = random.randint(0,len(auth.tokens_vk)-1)
     # auth.tokens_vk[i]
-    return auth.tokens_vk[random.randint(0,len(auth.tokens_vk)-1)]
+    return auth.tokens_vk[random.randint(0, len(auth.tokens_vk)-1)]
 
 token = change_token()
 session = vk_api.VkApi(token=token)
 vk = session.get_api()
 
-print(" токен", token)
+print("токен", token)
 
 def last_post():
     posts = session.method("wall.get", {
@@ -38,8 +38,8 @@ def like_post(post=last_post()):
 def read_file_to_list():
 # # ***********************читаем вопросы -  все строки из файла в список *************************
     question = []
-    if os.path.exists('/home/sasha/vk_bot/text/question_banner.txt'):
-        f = open('/home/sasha/vk_bot/text/question_banner.txt', 'r', encoding='UTF-8')
+    if os.path.exists('text/question_banner.txt'):
+        f = open('text/question_banner.txt', 'r', encoding='UTF-8')
         for x in f:
             if (len(x.strip()) > 2):
                 question.append(x.strip())

@@ -37,8 +37,8 @@ def load_file_t_list():
     # """# Загружаем список фраз и ответов в массив """
 
     mas = []
-    if os.path.exists('/home/sasha/vk_bot/text/answer_banner.txt'):
-        f = open('/home/sasha/vk_bot/text/answer_banner.txt', 'r', encoding='UTF-8')
+    if os.path.exists('text/answer_banner.txt'):
+        f = open('text/answer_banner.txt', 'r', encoding='UTF-8')
         for x in f:
             if (len(x.strip()) > 2):
                 mas.append(x.strip().lower())
@@ -51,7 +51,7 @@ def answer(text,mas):
     try:
         text = text.lower().strip()
 
-        if os.path.exists('/home/sasha/vk_bot/text/answer_banner.txt'):
+        if os.path.exists('text/answer_banner.txt'):
             a = 0
             n = 0
             nn = 0
