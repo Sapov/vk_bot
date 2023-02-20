@@ -9,16 +9,17 @@ session = vk_api.VkApi(token=token_grup_banner)
 vk = session.get_api()
 
 
-def count_files(dirs: str):
-    ''' считаем файлы в фирктории'''
-    list_files = os.listdir(dirs)  # cмотрим сколько у нас файлов
+def count_files(path_dir: str):
+    ''' считаем файлы в директории'''
+    list_files = os.listdir(path_dir)  # cмотрим сколько у нас файлов
     return len(list_files)
 
 
 def text_message(dirs):
     # собираем путь до файла
     name_path_text = f'text/{dirs}/'
-    name_file = random.randint(1, 20)
+
+    name_file = random.randint(1, count_files(name_path_text)) # выбираем рандомный путь или name_file = randome.choice(count_files(name_path_text))
     text_path = f'{name_path_text}{name_file}.txt'
     with open(text_path, 'r', -1, 'utf-8') as text_file:
         message_post = text_file.read()
@@ -28,9 +29,9 @@ def text_message(dirs):
 
 def pic_post(dirs):
     '''рандомно выбираются фотографии'''
+
     name_path_text = f'picturies/{dirs}/'
-    list_files = os.listdir(name_path_text)  # cмотрим сколько у нас файлов
-    name_file = random.randint(1, len(list_files))
+    name_file = random.randint(1, count_files(name_path_text))
     pic_path = f'{name_path_text}{name_file}.jpg'
     print(pic_path)
     return pic_path
@@ -62,3 +63,4 @@ def posting(group_id, dirs):
 
 if __name__ == '__main__':
     posting(group_id, 'banner')
+
