@@ -1,6 +1,6 @@
 import os
 
-path_pic = 'picturies/banner'
+path_pic = 'picturies/mobstend'
 list_files = os.listdir(path_pic)
 print(list_files)
 ext ='jpg'

@@ -57,7 +57,7 @@ def camment(last_post, question, session ):
     print('Пишем Сamment', 'в группе', -id_gruop)
 
 
-def main():
+def question():
     token = change_token()
     session = vk_api.VkApi(token=token)
     vk = session.get_api()
@@ -67,4 +67,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    question()

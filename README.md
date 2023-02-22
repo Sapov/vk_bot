@@ -1,2 +1,10 @@
-# vk_bot
-for auto posting picturies and text , and qustions and answer 
+Как собрать докер
+1. перейти в каталог поекта 
+2. docker build . - t (имя имиджа к примеру vk_bot)  -> docker build . -t vk_bot
+
+Как запустить:
+1. docker run -d vk_bot
+
+Как сделать чтоб докер стартовал после перезагрузки
+Если у вас уже есть запущенный контейнер, для которого вы хотите изменить политику перезапуска, вы можете использовать команду docker update, чтобы изменить это:
+docker update --restart unless-stopped container_id

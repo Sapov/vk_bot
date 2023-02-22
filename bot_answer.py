@@ -90,7 +90,7 @@ def post_recamment(s, id_gruop, last_post):
     })
 
 
-def main():
+def answer_main():
     mas = load_file_t_list()
     text = read_post(last_post=last_post())
     s = answer(text, mas)
@@ -98,4 +98,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    answer_main()
